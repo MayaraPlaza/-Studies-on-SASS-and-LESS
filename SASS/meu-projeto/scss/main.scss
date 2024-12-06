@@ -1,0 +1,53 @@
+// Importando variáveis e mixins
+@import 'variables';
+@import 'mixins';
+
+// Estilos gerais
+body {
+  font-family: Arial, sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+// Cabeçalho
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: $padding;
+
+  h1 {
+    text-align: center;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: $padding;
+
+      li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+// Seção Principal
+.content {
+  @include center;
+  flex-direction: column;
+  min-height: 300px;
+
+  h2 {
+    color: $primary-color;
+  }
+}

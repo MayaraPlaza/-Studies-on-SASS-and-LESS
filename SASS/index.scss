@@ -1,0 +1,157 @@
+Guia de Estudos: SASS
+1. O que é SASS?
+Definição: Extensão de CSS que adiciona recursos avançados.
+Objetivo: Tornar o código CSS mais organizado, reutilizável e eficiente.
+Sintaxe:
+SASS: Usa indentação (sem {} ou ;).
+SCSS: Mais próximo do CSS padrão.
+
+2. Instalação
+Pré-requisitos: Node.js ou Ruby.
+Instalação do SASS:
+bash
+
+npm install -g sass
+Como compilar:
+bash
+
+sass arquivo.scss arquivo.css
+
+3. Principais Recursos
+
+3.1 Variáveis
+Usadas para armazenar valores reutilizáveis.
+scss
+
+$primary-color: #3498db;
+
+body {
+  background-color: $primary-color;
+}
+
+3.2 Aninhamento
+Reflete a hierarquia do HTML, tornando o código mais legível.
+scss
+
+nav {
+  ul {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+3.3 Mixins
+Blocos de código reutilizáveis com suporte a parâmetros.
+scss
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  @include flex-center;
+}
+
+3.4 Importação
+Divide o código em partes menores.
+scss
+
+@import 'header';
+@import 'footer';
+
+3.5 Extends
+Permite compartilhar estilos entre seletores.
+scss
+
+
+.btn {
+  padding: 10px;
+  border: none;
+}
+
+.btn-primary {
+  @extend .btn;
+  background: blue;
+}
+
+3.6 Funções
+Realiza cálculos e manipulações, como ajustar cores.
+scss
+
+$base-color: #ff5733;
+
+h1 {
+  color: lighten($base-color, 10%);
+}
+
+4. Estruturação de Projetos
+
+4.1 Exemplo de organização
+
+bash
+
+
+/scss
+  ├── _variables.scss
+  ├── _mixins.scss
+  ├── _base.scss
+  ├── _components.scss
+  ├── main.scss
+
+main.scss importa os outros arquivos:
+scss
+
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'components';
+
+5. Boas Práticas
+Mantenha o código DRY (Don't Repeat Yourself).
+Nomeie variáveis e mixins de forma descritiva.
+Use comentários para descrever o que cada parte do código faz.
+
+6. Ferramentas Úteis
+Extensões do VSCode: Live Sass Compiler.
+Sites de referência:
+Documentação oficial do SASS
+MDN Web Docs
+
+7. Exemplos Práticos
+Tema escuro e claro:
+scss
+
+$theme: dark;
+
+body {
+  background-color: if($theme == dark, #000, #fff);
+  color: if($theme == dark, #fff, #000);
+}
+Botões com mixins:
+scss
+
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  @include button-style(blue, white);
+}
+
+.btn-secondary {
+  @include button-style(gray, black);
+}
+
+8. Experimentos
+Use este espaço para testar códigos, anotar descobertas e registrar dúvidas.
+
+9. Próximos Passos
+Explore frameworks como Bootstrap que utilizam SASS.
+Crie projetos práticos aplicando os conceitos.
